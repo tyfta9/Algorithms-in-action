@@ -1,0 +1,21 @@
+Line Code,Batch Code,Batch Date & Time,Product ID,Product Name,Target Engine Code,Bin#,Weight
+3,3001,17-07-15,301,Intake Manifold,B18C1,1,1.5
+3,3002,17-08-30,302,Exhaust Valve,K20A,1,0.6
+3,3003,17-09-45,303,Intake Valve,F20C,2,0.5
+3,3004,17-10-20,304,Flywheel,B16B,2,8.0
+3,3005,17-11-35,305,Clutch Slave Cylinder,K24A,3,1.2
+3,3006,17-12-50,306,Clutch Master Cylinder,B18C1,3,1.0
+3,3007,17-13-25,307,Throttle Position Sensor,F20C,4,0.3
+3,3008,17-14-40,308,Mass Air Flow Sensor,K20A,4,0.4
+3,3009,17-15-55,309,Fuel Pump,B16B,1,2.0
+3,3010,17-16-10,310,Fuel Rail,K24A,1,1.8
+3,3011,17-17-20,311,Injector O-Ring,B18C1,2,0.1
+3,3012,17-18-35,312,Valve Spring,F20C,2,0.2
+3,3013,17-19-50,313,Valve Lifter,K20A,3,0.7
+3,3014,17-20-05,314,Rocker Arm,B16B,3,0.9
+3,3015,17-21-15,315,Camshaft Position Sensor,K24A,4,0.5
+3,3016,17-22-30,316,Crankshaft Position Sensor,B18C1,4,0.6
+3,3017,17-23-45,317,Knock Sensor,F20C,1,0.4
+3,3018,17-00-55,318,Oil Pressure Sensor,K20A,1,0.3
+3,3019,17-01-10,319,Coolant Temp Sensor,B16B,2,0.5
+3,3020,17-02-25,320,EGR Valve,K24A,2,1.2

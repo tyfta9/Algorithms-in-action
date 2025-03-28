@@ -1,0 +1,21 @@
+Line Code,Batch Code,Batch Date & Time,Product ID,Product Name,Target Engine Code,Bin#,Weight
+1,1001,15-09-30,101,Spark Plug,B18C1,1,0.2
+1,1002,15-10-45,102,Oil Filter,K20A,1,0.5
+1,1003,15-11-15,103,Air Filter,F20C,2,0.3
+1,1004,15-12-00,104,Brake Pad,B16B,2,1.2
+1,1005,15-13-20,105,Timing Belt,K24A,3,0.8
+1,1006,15-14-10,106,Alternator,B18C1,3,4.5
+1,1007,15-15-30,107,Radiator,F20C,4,3.2
+1,1008,15-16-45,108,Water Pump,K20A,4,1.1
+1,1009,15-17-50,109,Ignition Coil,B16B,1,0.4
+1,1010,15-18-25,110,Throttle Body,K24A,1,0.9
+1,1011,15-19-05,111,Fuel Injector,B18C1,2,0.6
+1,1012,15-20-15,112,Camshaft,F20C,2,2.7
+1,1013,15-21-30,113,Crankshaft,K20A,3,5.0
+1,1014,15-22-45,114,Clutch Kit,B16B,3,3.8
+1,1015,15-23-10,115,Exhaust Manifold,K24A,4,2.5
+1,1016,15-00-20,116,Turbocharger,B18C1,4,6.2
+1,1017,15-01-40,117,ECU,F20C,1,1.5
+1,1018,15-02-55,118,Oxygen Sensor,K20A,1,0.7
+1,1019,15-03-25,119,ABS Module,B16B,2,2.1
+1,1020,15-04-50,120,Power Steering Pump,K24A,2,3.5

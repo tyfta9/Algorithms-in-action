@@ -1,0 +1,21 @@
+Line Code,Batch Code,Batch Date & Time,Product ID,Product Name,Target Engine Code,Bin#,Weight
+4,4001,18-06-10,401,Power Steering Hose,B18C1,1,1.0
+4,4002,18-07-25,402,AC Compressor,K20A,1,4.5
+4,4003,18-08-40,403,AC Condenser,F20C,2,3.0
+4,4004,18-09-55,404,Evaporator,B16B,2,2.5
+4,4005,18-10-15,405,Blower Motor,K24A,3,1.8
+4,4006,18-11-30,406,Heater Core,B18C1,3,2.2
+4,4007,18-12-45,407,Radiator Fan,F20C,4,1.5
+4,4008,18-13-20,408,Coolant Reservoir,K20A,4,0.9
+4,4009,18-14-35,409,Windshield Washer Pump,B16B,1,0.6
+4,4010,18-15-50,410,Headlight Assembly,K24A,1,2.0
+4,4011,18-16-05,411,Tail Light,B18C1,2,1.2
+4,4012,18-17-20,412,Fog Light,F20C,2,0.8
+4,4013,18-18-35,413,Horn,K20A,3,0.5
+4,4014,18-19-50,414,Battery,B16B,3,15.0
+4,4015,18-20-05,415,Alternator Belt,K24A,4,0.7
+4,4016,18-21-15,416,Serpentine Belt,B18C1,4,0.9
+4,4017,18-22-30,417,Spark Plug Wire Set,F20C,1,0.4
+4,4018,18-23-45,418,Distributor Cap,K20A,1,0.3
+4,4019,18-00-55,419,Ignition Rotor,B16B,2,0.2
+4,4020,18-01-10,420,Coil Pack,K24A,2,0.8
