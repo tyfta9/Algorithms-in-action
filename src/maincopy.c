@@ -1,15 +1,9 @@
+// #include "ReadProductFile.h"
+// #include "CarPartProduct.h"
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 
-// date length
-#define DATELEN 9
-// product id length
-#define IDLEN 5
-// name length
-#define NAMELEN 30
-// target engine code length
-#define ENGINECODELEN 6
 // amount of files
 #define FILERANGE 4
 // file path length
@@ -19,39 +13,55 @@
 // number of columns in files
 #define COLNUM 8
 
-// typedef struct product Product;
+// date length
+#define DATELEN 9
+// product id length
+#define IDLEN 5
+// name length
+#define NAMELEN 30
+// target engine code length
+#define ENGINECODELEN 6
 
-struct product
+typedef struct carPartProduct
 {
     // line code
     char line;
+
     // batch code
     unsigned int batch;
+
     // bin number
     char bin;
+
     // product weight
     float weight;
+
     // product ID
     char id[IDLEN];
+
     // batch date & time
     char date[DATELEN];
+
     // product name
     char name[NAMELEN];
+
     // target engine code
     char engine[ENGINECODELEN];   
-};
+} 
+part;
 
 // get total product or line count in all files
 int FGetProductCount();
 // converts row of a file to product structure,
 // uses specified delimeter
-struct product RowToProduct(char *row, char *delim);
+part RowToProduct(char *row, char *delim);
 // read all product from file
-struct product* FReadProduct(int size);
+part* FReadProduct(int size);
+
 // // sorts the products by weight
-// void Merge_SortByWeight(struct product *products, int low, int high);
+// void Merge_SortByWeight(part *products, int low, int high);
 // // merge for merge sort 
-// void Merge(struct product *products, int low, int mid, int high);
+// void Merge(part *products, int low, int mid, int high);
 
 // file path
 const char *fPath = "..\\data\\";
@@ -62,7 +72,7 @@ const char *fExt = ".csv";
 
 int main(void)
 {
-    struct product *products = 0;
+    part *products = 0;
     int size = 0;
 
     // count the size and check for error
@@ -78,15 +88,15 @@ int main(void)
     // sort product by weight
     //                  Merge_SortByWeight(products, 0, size-1);
 
-    printf("%s\n", products[2].name);
+    printf("%s\n", products[20].name);
 
-    // free the memory space
+    // free the memory spaces
     free(products);
 
     return 0;
 }
 
-// void Merge_SortByWeight(struct product *products, int low, int high)
+// void Merge_SortByWeight(part *products, int low, int high)
 // {
 //     int mid = (high-low)/2;
 //     // if n < 2
@@ -98,16 +108,16 @@ int main(void)
 // }
 
 // read product from file 
-struct product* FReadProduct(int size)
+part* FReadProduct(int size)
 {
-    struct product *products = 0;
+    part *products = 0;
     FILE *fp = 0;
     char fullPath[PATHLEN] = {0};
     char row[ROWLEN] = {0};
 
     
     // allocate memory of the needed size
-    products = malloc(sizeof(struct product)*size);
+    products = malloc(sizeof(part)*size);
     // error checking 
     if(products == NULL)
     {
@@ -148,9 +158,9 @@ struct product* FReadProduct(int size)
 
 // converts row of a file to product structure,
 // uses specified delimeter
-struct product RowToProduct(char *row, char *delim)
+part RowToProduct(char *row, char *delim)
 {
-    struct product p;
+    part p;
     char *tokens[COLNUM] = {0};
     int size = 0;
 
