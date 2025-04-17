@@ -14,16 +14,19 @@ int main(void)
     part *products = 0;
     int size = 0;
 
-    // count the size and check for error
-    if((size = FGetProductCount()) == -1)
+    // count the number of products
+    size = FGetProductCount();
+
+    // allocate memory of the needed size and check for error
+    if((products = malloc(sizeof(part)*size)) == NULL)
     {
-        fprintf(stderr, "Error, couldn't count product.\n");
+        fprintf(stderr, "Error, couldn't allocate memory.\n");
+        getchar();
         return 1;
     }
 
     // read products
-    products = FReadProduct(size);
-    
+    FReadProduct(products, size);
 
     // sort product by weight
     //                  Merge_SortByWeight(products, 0, size-1);

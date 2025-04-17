@@ -2,51 +2,45 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <windows.h>
 
 // amount of files
 #define FILERANGE 4
 // file path length
-#define PATHLEN 30
+#define PATHLEN 100
 // string row length of a file
 #define ROWLEN 150
 // number of columns in files
 #define COLNUM 8
 
-// file path
-const char *fPath = "..\\data\\";
+// file path                                                TO DO - CHANGE FROM RELEVENT PATH TO ABSOLUTE
+const char *fPath = ".\\data\\";               
 // file name
 const char *fName = "line";
 // file extension 
 const char *fExt = ".csv";
 
-// get total product or line count in all files
+// get total product or line count in all files excluding headers
 int FGetProductCount();
 // converts row of a file to product structure,
 // uses specified delimeter
 part RowToProduct(char *row, char *delim);
 // read all product from file
-part* FReadProduct(int size);
+void FReadProduct(part *products, int size);
 
 // read product from file 
-part* FReadProduct(int size)
+void FReadProduct(part *products, int size)
 {
-    part *products = 0;
     FILE *fp = 0;
     char fullPath[PATHLEN] = {0};
     char row[ROWLEN] = {0};
+    char *delim = ",";
 
-    // allocate memory of the needed size
-    products = malloc(sizeof(part)*size);
-    // error checking 
-    if(products == NULL)
-    {
-        fprintf(stderr, "Error, couldn't allocate memory.\n");
-        return NULL;
-    }
 
     // go through the file range
     for(int i = 0, j = 0; i < FILERANGE; i++)
-    {        
+    {
+        GetModuleFileName(NULL, fullPath, PATHLEN);
         // assemble full file path to i file
         snprintf(fullPath, PATHLEN, "%s%s%d%s", fPath, fName, i+1, fExt);
         // open the file
@@ -54,8 +48,8 @@ part* FReadProduct(int size)
         // check for successful opening
         if(fp == NULL)
         {
-            fprintf(stderr, "Error, Couldn't open files.\n");
-            return NULL;
+            fprintf(stderr, "Could not open file, path: %s\n", fullPath);
+            exit(1);
         }
 
         // skip first header row
@@ -64,15 +58,13 @@ part* FReadProduct(int size)
         // go through products
         while(fgets(row, ROWLEN, fp))
         {
-            products[j] = RowToProduct(row, ",");
+            *(products + j) = RowToProduct(row, delim);
             j++;
         }
         
         // close the file
         fclose(fp);
     }
-
-    return products;
 }
 
 // converts row of a file to product structure,
@@ -84,20 +76,24 @@ part RowToProduct(char *row, char *delim)
     int size = 0;
 
 
+    // start strtok and read first column
     tokens[0] = strtok(row, delim);
     size++;
 
+    // keep reading columns until null
     while((tokens[size] = strtok(NULL, delim)) != NULL)
     {
         size++;
     }
 
+    // check if size equal to specified column number
     if(size != COLNUM)
     {
         fprintf(stderr, "Error, wrong file format.\n");
-        return p;
+        exit(1);
     }
     
+    // asign all columns to related structure variables
     p.line = *tokens[0];
     p.batch = atoi(tokens[1]);
     strcpy(p.date, tokens[2]);
@@ -115,10 +111,11 @@ part RowToProduct(char *row, char *delim)
 int FGetProductCount()
 {
     int count = 0;
-    char fullPath[PATHLEN];                                                             // TO REFACTOR: = {0};
-    char row[ROWLEN];                                                                   // TO REFACTOR: = {0};
+    char fullPath[PATHLEN] = {0};
+    char row[ROWLEN] = {0};
     FILE *fp = 0;
     
+
     // go through all the files
     for(int i = 0; i < FILERANGE; i++)
     {
@@ -131,7 +128,7 @@ int FGetProductCount()
         if(fp == NULL)
         {
             fprintf(stderr, "Could not open file, path: %s\n", fullPath);
-            return -1;
+            exit(1);
         }
 
         // go trough all rows and count
