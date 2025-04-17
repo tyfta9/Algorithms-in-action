@@ -57,3 +57,8 @@ $(CFILES_DIR)/%.c:
 clean:
 # remove directories of object and binary files
 	rmdir /s /q $(subst ./,,$(OBJECTS_DIR)) $(subst ./,,$(BINARY_DIR))
+
+# target to run the binary file
+.PHONY: run
+run:
+	@$(BINARY)
