@@ -1,3 +1,7 @@
+// if CarPartProduct.h is already included, no need to include it again
+#if !defined(CARPARTPRODUCT_H)
+#define CARPARTPRODUCT_H
+
 // date length
 #define DATELEN 9
 // product id length
@@ -34,3 +38,5 @@ typedef struct carPartProduct
     char engine[ENGINECODELEN];   
 } 
 part;
+
+#endif
