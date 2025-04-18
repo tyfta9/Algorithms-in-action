@@ -60,5 +60,5 @@ clean:
 
 # target to run the binary file
 .PHONY: run
-run:
+run: all
 	@$(BINARY)
