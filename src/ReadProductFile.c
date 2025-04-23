@@ -14,7 +14,7 @@
 #define COLNUM 8
 
 // file path                                                TO DO - CHANGE FROM RELEVENT PATH TO ABSOLUTE
-const char *fPath = ".\\data\\";               
+const char *fPath = "D:\\Mytki\\TudProjects\\Algorithm&Design\\Algorithms-in-action\\data\\";               
 // file name
 const char *fName = "line";
 // file extension 
@@ -40,7 +40,7 @@ void FReadProduct(part *products, int size)
     // go through the file range
     for(int i = 0, j = 0; i < FILERANGE; i++)
     {
-        GetModuleFileName(NULL, fullPath, PATHLEN);
+        //                                                                  GetModuleFileName(NULL, fullPath, PATHLEN);
         // assemble full file path to i file
         snprintf(fullPath, PATHLEN, "%s%s%d%s", fPath, fName, i+1, fExt);
         // open the file
@@ -56,11 +56,14 @@ void FReadProduct(part *products, int size)
         fgets(row, ROWLEN, fp);
 
         // go through products
-        while(fgets(row, ROWLEN, fp))
+        while(fgets(row, ROWLEN, fp) && j < size)
         {
-            *(products + j) = RowToProduct(row, delim);
+            (*(products + j)) = RowToProduct(row, delim);
             j++;
         }
+
+        if(j >= size)
+            return;
         
         // close the file
         fclose(fp);
@@ -94,13 +97,13 @@ part RowToProduct(char *row, char *delim)
     }
     
     // asign all columns to related structure variables
-    p.line = *tokens[0];
+    p.line = atoi(tokens[0]);
     p.batch = atoi(tokens[1]);
     strcpy(p.date, tokens[2]);
-    strcpy(p.id, tokens[3]);
+    p.id = atoi(tokens[3]);
     strcpy(p.name, tokens[4]);
     strcpy(p.engine, tokens[5]);
-    p.bin = *tokens[6];
+    p.bin = atoi(tokens[6]);
     p.weight = (float)atof(tokens[7]);
 
     return p;
