@@ -1,5 +1,6 @@
 # default compiler
 CC=gcc
+CFLAGS=-g
 
 # name of the files to be included in the program ______ ADD THE NAME OF YOUR FILES YOU WISH TO INCLUDE IN THE PROGRAM
 FILES=main ReadProductFile
@@ -40,7 +41,7 @@ $(BINARY): $(OBJECTS) | $(BINARY_DIR)
 # if c files are NOT up to date and object dir exists - compile c files to object files
 # else go to c files or object_dir
 $(OBJECTS_DIR)/%.o: $(CFILES_DIR)/%.c | $(OBJECTS_DIR)
-	$(CC) -c $< -o $@
+	$(CC) -c $< -o $@ $(CFLAGS)
 
 # if directories do NOT exist - create them
 $(BINARY_DIR) $(OBJECTS_DIR):
