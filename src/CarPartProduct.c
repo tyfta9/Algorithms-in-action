@@ -5,7 +5,7 @@
 // looks for a part with specified weight trough the provided products
 part *FindPartByWeight(part *products, int size, float weight);
 // prints list of parts
-void PrintParts(part *p, int size);
+void PrintParts(part *products, int size);
 // sorts the products by weight
 void SortByWeight(part *products, int low, int high);
 // merge for merge sort 
@@ -53,16 +53,16 @@ part *FindPartByWeight(part *products, int size, float weight)
 } 
 
 // prints list of parts
-void PrintParts(part *p, int size)
+void PrintParts(part *products, int size)
 {
     // go through products and print each part
     for(int i = 0; i < size; i++)
     {
-        printf("%d,%5d,", (*(p+i)).line, (*(p+i)).batch);
-        printf("%9s,", (*(p+i)).date);
-        printf("%4d,%27s,", (*(p+i)).id, (*(p+i)).name);
-        printf("%6s,%2d,", (*(p+i)).engine, (*(p+i)).bin);
-        printf("%6.2f\n", (*(p+i)).weight);
+        printf("%d,%5d,", (*(products+i)).line, (*(products+i)).batch);
+        printf("%9s,", (*(products+i)).date);
+        printf("%4d,%27s,", (*(products+i)).id, (*(products+i)).name);
+        printf("%6s,%2d,", (*(products+i)).engine, (*(products+i)).bin);
+        printf("%6.2f\n", (*(products+i)).weight);
     }
 }
 
