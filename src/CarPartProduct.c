@@ -2,6 +2,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+// counts total weight of all provided products
+float CountTotalWeight(part *products, int size);
 // looks for a part with specified weight trough the provided products
 part *FindPartByWeight(part *products, int size, float weight);
 // prints list of parts
@@ -10,6 +12,19 @@ void PrintParts(part *products, int size);
 void SortByWeight(part *products, int low, int high);
 // merge for merge sort 
 void Merge(part *products, int low, int mid, int high);
+
+// counts total weight of all provided products
+float CountTotalWeight(part *products, int size)
+{
+    float sum = 0;
+
+    for(int i = 0; i < size; i++)
+    {
+        sum += (*(products+i)).weight;
+    }
+
+    return sum;
+}
 
 // looks for a product with specified weight
 part *FindPartByWeight(part *products, int size, float weight)

@@ -38,7 +38,7 @@ typedef struct carPartProduct
 part;
 
 // counts total weight of all provided products
-int CountTotalWeight(part *products, int size);
+float CountTotalWeight(part *products, int size);
 // looks for a part with specified weight trough the provided products
 part *FindPartByWeight(part *products, int size, float weight);
 // prints list of parts
