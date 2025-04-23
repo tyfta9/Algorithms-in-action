@@ -49,6 +49,8 @@ void FReadProduct(part *products, int size)
         if(fp == NULL)
         {
             fprintf(stderr, "Could not open file, path: %s\n", fullPath);
+            // let user read before closing exiting program
+            getchar();
             exit(1);
         }
 
@@ -93,6 +95,8 @@ part RowToProduct(char *row, char *delim)
     if(size != COLNUM)
     {
         fprintf(stderr, "Error, wrong file format.\n");
+        // let user read before closing exiting program
+        getchar();
         exit(1);
     }
     
@@ -131,6 +135,8 @@ int FGetProductCount()
         if(fp == NULL)
         {
             fprintf(stderr, "Could not open file, path: %s\n", fullPath);
+            // let user read before closing exiting program
+            getchar();
             exit(1);
         }
 

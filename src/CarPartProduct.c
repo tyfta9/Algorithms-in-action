@@ -91,6 +91,8 @@ void Merge(part *products, int low, int mid, int high) //                   TO D
     if((tempProd = calloc(size, sizeof(part))) == NULL)
     {
         fprintf(stderr, "Error, could not allocate temporary memory.\n");
+        // let user read before closing exiting program
+        getchar();
         exit(1);
     }
 
