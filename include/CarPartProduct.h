@@ -37,4 +37,11 @@ typedef struct carPartProduct
 } 
 part;
 
+// sorts the products by weight
+void SortByWeight(part *products, int low, int high);
+// merge for merge sort 
+void Merge(part *products, int low, int mid, int high);
+// prints list of parts
+void PrintParts(part *p, int size);
+
 #endif
