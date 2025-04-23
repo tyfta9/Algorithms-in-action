@@ -45,7 +45,5 @@ part *FindPartByWeight(part *products, int size, float weight);
 void PrintParts(part *products, int size);
 // sorts the products by weight
 void SortByWeight(part *products, int low, int high);
-// merge for merge sort 
-void Merge(part *products, int low, int mid, int high);
 
 #endif
