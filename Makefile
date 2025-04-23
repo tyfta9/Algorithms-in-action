@@ -3,7 +3,7 @@ CC=gcc
 CFLAGS=-g
 
 # name of the files to be included in the program ______ ADD THE NAME OF YOUR FILES YOU WISH TO INCLUDE IN THE PROGRAM
-FILES=main ReadProductFile
+FILES=main ReadProductFile CarPartProduct
 # Binary file name, program name
 _BINARY=out
 # make a list of C files
