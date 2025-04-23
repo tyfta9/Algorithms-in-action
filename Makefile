@@ -36,7 +36,7 @@ all: $(BINARY)
 # else go to objects or binary_dir
 $(BINARY): $(OBJECTS) | $(BINARY_DIR)
 # compile all object files in the binary
-	$(CC) $^ -o $@
+	$(CC) $^ -o $@ $(CFLAGS)
 
 # if c files are NOT up to date and object dir exists - compile c files to object files
 # else go to c files or object_dir
