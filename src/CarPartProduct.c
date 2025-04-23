@@ -2,12 +2,55 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+// looks for a part with specified weight trough the provided products
+part *FindPartByWeight(part *products, int size, float weight);
+// prints list of parts
+void PrintParts(part *p, int size);
 // sorts the products by weight
 void SortByWeight(part *products, int low, int high);
 // merge for merge sort 
 void Merge(part *products, int low, int mid, int high);
-// prints list of parts
-void PrintParts(part *p, int size);
+
+// looks for a product with specified weight
+part *FindPartByWeight(part *products, int size, float weight)
+{
+    int left = 0;
+    int mid = 0;
+    int right = 0;
+
+
+    // left is outside
+    left = -1;
+    // right is last index
+    right = size-1;
+    // mid is middle index
+    mid = left+(right-left)/2;
+    // go through products
+    while(1+left != right)
+    {
+        // if weight less or equal to found one
+        if(weight <= (*(products+mid)).weight)
+        {
+            right = mid;
+            mid = left+(right-left)/2;
+        }
+        else
+        {
+            left = mid;
+            mid = left+(right-left)/2;
+        }
+    }
+
+    // if weight equals to the found one
+    if(weight == (*(products+right)).weight)
+    {
+        // return pointer to the found product
+        return (products+right);
+    }
+    
+    // else return null
+    return NULL;
+} 
 
 // prints list of parts
 void PrintParts(part *p, int size)
@@ -39,7 +82,7 @@ void SortByWeight(part *products, int low, int high)
     Merge(products, low, mid, high);
 }
 
-void Merge(part *products, int low, int mid, int high)
+void Merge(part *products, int low, int mid, int high) //                   TO DO - CHANGE SQ BRACKET NOTATION TO POINTER NOTATION 
 {
     part *tempProd = NULL;
     int size = high-low+1;
