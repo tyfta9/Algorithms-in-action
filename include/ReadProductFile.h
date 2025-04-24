@@ -6,9 +6,8 @@
 // public functions of a ReadProductFile.c file
 
 // get total product or line count in all files excluding headers
-int FGetProductCount();
-
+int FGetRowCount(char *fullFilePath);
 // read all product from file
-void FReadProduct(part* products, int size);
+void FReadProducts(part **products, int size, char *fullFilePath, char *delim);
 
 #endif
